@@ -1,1 +1,10 @@
-// place files you want to import through the `$lib` alias in this folder.
+import caesar from "./ciphers/caesar";
+
+export interface Cipher {
+	name: string;
+	cipher: (input: string) => string;
+};
+
+export default [
+	caesar,
+];
