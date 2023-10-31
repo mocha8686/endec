@@ -1,17 +1,25 @@
 <script lang="ts">
-	import Caesar from '$lib/ciphers/Caesar.svelte';
-
-	const ciphers = [Caesar];
+	import { decoders, encoders } from '$lib/ciphers';
 
 	let input = '';
 </script>
 
 <textarea bind:value={input} />
 
+<h2>Encoding</h2>
 <ul>
-	{#each ciphers as Cipher}
+	{#each encoders as Encoder}
 		<li>
-			<Cipher {input} />
+			<Encoder {input} />
+		</li>
+	{/each}
+</ul>
+
+<h2>Decoding</h2>
+<ul>
+	{#each decoders as Decoder}
+		<li>
+			<Decoder {input} />
 		</li>
 	{/each}
 </ul>

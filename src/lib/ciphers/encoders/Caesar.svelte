@@ -34,5 +34,5 @@
 
 <Cipher name="Caesar" {output}>
 	<label for="shift">Shift</label>
-	<input id="shift" type="number" min="-42" max="42" bind:value={shift} />
+	<input id="shift" type="number" min="0" max="26" bind:value={shift} />
 </Cipher>
