@@ -1,0 +1,6 @@
+@use 'sass:map';
+
+@use '$lib/sass/abstracts/variables' as *;
+
+$text-main: map.get($colors, neutral, 50);
+$background-main: map.get($colors, neutral, 950);

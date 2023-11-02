@@ -1,0 +1,9 @@
+@use 'sass:map';
+
+@use '../abstracts/colors';
+@use '../abstracts/variables' as *;
+
+body {
+	color: colors.$text-main;
+	background-color: colors.$background-main;
+}

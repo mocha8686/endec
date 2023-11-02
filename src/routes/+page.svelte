@@ -14,3 +14,9 @@
 	{/each}
 </ul>
 
+<style lang="scss">
+	textarea {
+		width: 100%;
+		margin: auto;
+	}
+</style>
