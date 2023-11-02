@@ -1,25 +1,16 @@
 <script lang="ts">
-	import { decoders, encoders } from '$lib/ciphers';
+	import ciphers from '$lib/ciphers';
 
 	let input = '';
 </script>
 
 <textarea bind:value={input} />
 
-<h2>Encoding</h2>
 <ul>
-	{#each encoders as Encoder}
+	{#each ciphers as Cipher}
 		<li>
-			<Encoder {input} />
+			<Cipher {input} />
 		</li>
 	{/each}
 </ul>
 
-<h2>Decoding</h2>
-<ul>
-	{#each decoders as Decoder}
-		<li>
-			<Decoder {input} />
-		</li>
-	{/each}
-</ul>

@@ -1,5 +1,4 @@
-import BinStringEncode from './ciphers/encoders/BinString.svelte';
-import Caesar from './ciphers/encoders/Caesar.svelte';
+import BinString from './components/ciphers/BinString.svelte';
+import Caesar from './components/ciphers/Caesar.svelte';
 
-export const encoders = [BinStringEncode, Caesar];
-export const decoders = [];
+export default [BinString, Caesar];
