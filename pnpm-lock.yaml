@@ -47,6 +47,9 @@ devDependencies:
   include-media:
     specifier: ^2.0.0
     version: 2.0.0
+  js-base64:
+    specifier: ^3.7.5
+    version: 3.7.5
   normalize.css:
     specifier: ^8.0.1
     version: 8.0.1
@@ -1957,6 +1960,10 @@ packages:
 
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+    dev: true
+
+  /js-base64@3.7.5:
+    resolution: {integrity: sha512-3MEt5DTINKqfScXKfJFrRbxkrnk2AxPWGBL/ycjz4dK8iqiSJ06UxD8jh8xuh6p10TX4t2+7FsBYVxxQbMg+qA==}
     dev: true
 
   /js-tokens@4.0.0:

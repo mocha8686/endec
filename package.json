@@ -28,6 +28,7 @@
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"eslint-plugin-svelte": "^2.34.1",
 		"include-media": "^2.0.0",
+		"js-base64": "^3.7.5",
 		"normalize.css": "^8.0.1",
 		"postcss-html": "^1.5.0",
 		"prettier": "^3.0.3",
