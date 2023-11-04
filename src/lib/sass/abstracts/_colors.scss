@@ -2,5 +2,14 @@
 
 @use '$lib/sass/abstracts/variables' as *;
 
-$text-main: map.get($colors, neutral, 50);
-$background-main: map.get($colors, neutral, 950);
+// Theme
+$background-primary: map.get($colors, neutral, 900);
+$background-secondary: map.get($colors, neutral, 800);
+$accent-primary: map.get($colors, primary, 400);
+$accent-selected: map.get($colors, primary, 700);
+
+// Elements
+$header-primary: map.get($colors, primary, 700);
+
+// Text
+$text-primary: map.get($colors, neutral, 50);

@@ -34,7 +34,9 @@
 {/if}
 
 <style lang="scss">
-	.disabled {
-		background-color: gray;
+	.cipher-name {
+		font-size: 1rem;
+		margin: 0;
+		white-space: nowrap;
 	}
 </style>

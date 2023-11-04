@@ -1,0 +1,6 @@
+@use 'sass:map';
+
+@use '$lib/sass/abstracts/variables' as *;
+
+$header: map.get($font-families, 'mono');
+$body: map.get($font-families, 'main');

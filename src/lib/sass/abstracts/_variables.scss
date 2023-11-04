@@ -1,3 +1,10 @@
+@use '@fontsource/barlow';
+@use '@fontsource/iosevka';
+
+$breakpoints: (
+	small: 600px,
+);
+
 $colors: (
 	neutral: (
 		50: hsl(0deg 0% 98%),
@@ -12,4 +19,20 @@ $colors: (
 		900: hsl(0deg 0% 9%),
 		950: hsl(0deg 0% 4%),
 	),
+	primary: (
+		100: hsl(204deg 16% 93%),
+		200: hsl(204deg 16% 85%),
+		300: hsl(204deg 18% 78%),
+		400: hsl(204deg 17% 70%),
+		500: hsl(204deg 17% 63%),
+		600: hsl(204deg 17% 55%),
+		700: hsl(204deg 18% 48%),
+		800: hsl(204deg 25% 40%),
+		900: hsl(204deg 35% 33%),
+	),
+);
+
+$font-families: (
+	main: ('Barlow', sans-serif),
+	mono: ('Iosevka', monospace),
 );

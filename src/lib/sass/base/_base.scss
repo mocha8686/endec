@@ -1,9 +1,46 @@
 @use 'sass:map';
 
 @use '../abstracts/colors';
+@use '../abstracts/fonts';
 @use '../abstracts/variables' as *;
 
 body {
-	color: colors.$text-main;
-	background-color: colors.$background-main;
+	font-family: fonts.$body;
+	color: colors.$text-primary;
+	background-color: colors.$background-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: fonts.$header;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	appearance: none;
+}
+
+input[type='number'] {
+	appearance: none;
+}
+
+select {
+	appearance: none;
+	background-color: inherit;
+	background-image: url('$lib/icons/chevron-down-solid.svg');
+	background-repeat: no-repeat;
+	background-position: right 0.75rem center;
+}
+
+input,
+textarea {
+	transition: outline 100ms ease-in-out;
+
+	&:focus {
+		outline: 2px solid colors.$accent-selected;
+	}
 }
