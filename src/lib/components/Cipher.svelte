@@ -5,23 +5,33 @@
 	export let decoded: string | undefined | null = null;
 </script>
 
-<div>
-	<h3>{name}</h3>
+<h2 class="cipher-name ciphers-item">{name}</h2>
 
-	{#if encoded !== null}
-		<div class:disabled={encoded === undefined}>
-			{encoded}
-			<slot name="encoder-options" />
-		</div>
-	{/if}
+{#if encoded !== null}
+	<div
+		class="output-container encoded ciphers-item"
+		class:solo={decoded === null}
+		class:disabled={encoded === undefined}
+	>
+		<output class="encoded">{encoded !== undefined ? encoded : ''}</output>
+		<form class="options decoded">
+			<slot class="options encoded" name="encoder-options" />
+		</form>
+	</div>
+{/if}
 
-	{#if decoded !== null}
-		<div class:disabled={decoded === undefined}>
-			{decoded}
+{#if decoded !== null}
+	<div
+		class="output-container decoded ciphers-item"
+		class:solo={encoded === null}
+		class:disabled={decoded === undefined}
+	>
+		<output class="decoded">{decoded !== undefined ? decoded : ''}</output>
+		<form class="options decoded">
 			<slot name="decoder-options" />
-		</div>
-	{/if}
-</div>
+		</form>
+	</div>
+{/if}
 
 <style lang="scss">
 	.disabled {

@@ -1,13 +1,5 @@
-<script lang="ts">
-	import Cipher from '$lib/components/Cipher.svelte';
-
-	export let input: string;
-
-	let shift = 3;
-
-	$: encoded = caesar(input, shift);
-
-	function caesar(input: string, shift: number): string {
+<script lang="ts" context="module">
+	export function caesar(input: string, shift: number): string {
 		const ALPHABETS = [
 			'abcdefghijklmnopqrstuvwxyz',
 			'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -32,7 +24,17 @@
 	const mod = (n: number, m: number) => ((n % m) + m) % m;
 </script>
 
+<script lang="ts">
+	import Cipher from '$lib/components/Cipher.svelte';
+
+	export let input: string;
+	let shift = 3;
+	$: encoded = caesar(input, shift);
+</script>
+
 <Cipher name="Caesar" {encoded}>
-	<label for="shift">Shift</label>
-	<input id="shift" type="number" min="0" max="26" bind:value={shift} />
+	<label slot="encoder-options">
+		Shift
+		<input type="number" min="0" max="26" bind:value={shift} />
+	</label>
 </Cipher>

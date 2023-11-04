@@ -1,3 +1,38 @@
+<script lang="ts" context="module">
+	export function binStringEncode(input: string, separate: number): string {
+		const encoder = new TextEncoder();
+		const bytes = encoder.encode(input);
+		const binString = Array.from(bytes)
+			.map((byte) => byte.toString(2).padStart(8, '0'))
+			.join('');
+
+		if (separate > 0) {
+			const separated = binString
+				.match(new RegExp(`.{1,${separate}}`, 'g'))
+				?.join(' ');
+			return separated ?? '';
+		} else {
+			return binString;
+		}
+	}
+
+	export function binStringDecode(input: string): string | undefined {
+		if (input.length === 0) return '';
+
+		const noSpaces = input.replace(/\s/g, '');
+		if (noSpaces.match(/^[01]*$/) === null) return undefined;
+
+		const bytes = noSpaces
+			.match(/[01]{1,8}/g)!
+			.map((binString) => parseInt(binString, 2));
+
+		const decoder = new TextDecoder();
+		const plaintext = decoder.decode(new Uint8Array(bytes));
+
+		return plaintext;
+	}
+</script>
+
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
 
@@ -6,30 +41,13 @@
 	let separate = 0;
 
 	$: encoded = binStringEncode(input, separate);
-
-	function binStringEncode(input: string, separate: number): string {
-		const encoder = new TextEncoder();
-		const bytes = encoder.encode(input);
-		const binString = Array.from(bytes)
-			.map((byte) => byte.toString(2).padStart(8, '0'))
-			.join('');
-
-		if (separate > 0) {
-			const thing = binString
-				.match(new RegExp(`.{1,${separate}}`, 'g'))
-				?.join(' ');
-			console.debug(thing);
-			return thing ?? '';
-		} else {
-			return binString;
-		}
-	}
+	$: decoded = binStringDecode(input);
 </script>
 
-<Cipher name="Binary String" {encoded}>
-	<svelte:fragment slot="encoder-options">
-		<label for="separate">Separate at</label>
-		<select bind:value={separate} id="separate">
+<Cipher name="Binary String" {encoded} {decoded}>
+	<label slot="encoder-options">
+		Separate at
+		<select bind:value={separate}>
 			<option value={0}>None</option>
 			<option value={4}>Every 4 bits</option>
 			{#each [1, 2, 3, 4, 8, 16] as numBytes}
@@ -39,5 +57,5 @@
 				>
 			{/each}
 		</select>
-	</svelte:fragment>
+	</label>
 </Cipher>
