@@ -13,3 +13,5 @@ $header-primary: map.get($colors, primary, 700);
 
 // Text
 $text-primary: map.get($colors, neutral, 50);
+$text-disabled: map.get($colors, neutral, 500);
+$text-placeholder: map.get($colors, neutral, 500);

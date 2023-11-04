@@ -11,6 +11,14 @@ li.cipher {
 	display: contents;
 }
 
+.cipher-name {
+	padding-inline-end: 2rem;
+}
+
+:where(.ciphers-item) {
+	padding: 0.25rem;
+}
+
 .output-container {
 	@include clickable;
 
