@@ -28,37 +28,49 @@
 
 	$: [encoderString, encoderClass] = getOutputStringAndClass(encoded, 'encode');
 	$: [decoderString, decoderClass] = getOutputStringAndClass(decoded, 'decode');
+
+	let encoderActive = false;
+	let decoderActive = false;
+
+	const toggleEncoder = () => (encoderActive = !encoderActive);
+	const toggleDecoder = () => (decoderActive = !decoderActive);
 </script>
 
 <h2 class="cipher-name ciphers-item">{name}</h2>
 
 {#if encoded !== null}
 	<div
-		class="output-container encoded ciphers-item"
+		class="output-container ciphers-item"
 		class:solo={decoded === null}
+		class:active={encoderActive}
+		on:click|self={toggleEncoder}
+		on:keydown={toggleEncoder}
+		role="menu"
+		tabindex="0"
 	>
-		<output
-			class={`encoded ${encoderClass}`}
-		>
+		<output class={encoderClass}>
 			{encoderString}
 		</output>
-		<form class="options decoded">
-			<slot class="options encoded" name="encoder-options" />
+		<form class="options">
+			<slot class="options" name="encoder-options" />
 		</form>
 	</div>
 {/if}
 
 {#if decoded !== null}
 	<div
-		class="output-container decoded ciphers-item"
+		class="output-container ciphers-item"
 		class:solo={encoded === null}
+		class:active={decoderActive}
+		on:click|self={toggleDecoder}
+		on:keydown={toggleDecoder}
+		role="menu"
+		tabindex="0"
 	>
-		<output
-			class={`decoded ${decoderClass}`}
-		>
+		<output class={decoderClass}>
 			{decoderString}
 		</output>
-		<form class="options decoded">
+		<form class="options">
 			<slot name="decoder-options" />
 		</form>
 	</div>
@@ -83,6 +95,14 @@
 		&.placeholder {
 			font-style: italic;
 			color: colors.$text-placeholder;
+		}
+	}
+
+	.options {
+		display: none;
+
+		.active & {
+			display: initial;
 		}
 	}
 </style>
