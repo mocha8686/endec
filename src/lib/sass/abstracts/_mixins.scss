@@ -4,7 +4,18 @@
 	cursor: pointer;
 	transition: background-color 100ms ease-in-out;
 
-	&:hover {
+	&:hover,
+	&:focus-visible {
 		background-color: colors.$accent-selected;
 	}
+}
+
+@mixin textbox($min-height: 5.5em) {
+	resize: vertical;
+
+	min-height: $min-height;
+
+	background-color: colors.$background-element;
+	border: 1px solid colors.$accent-primary;
+	border-radius: 0.25rem;
 }

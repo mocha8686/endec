@@ -19,14 +19,13 @@ li.cipher {
 	padding: 0.25rem;
 }
 
-.output-container {
-	@include clickable;
-
-	overflow: clip;
-	min-width: 0;
-	text-overflow: ellipsis;
-}
-
 .output-container.solo {
 	grid-column: span 2;
+}
+
+.options {
+	input,
+	select {
+		background-color: colors.$background-element;
+	}
 }

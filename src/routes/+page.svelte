@@ -16,6 +16,7 @@
 
 <style lang="scss">
 	@use '$lib/sass/abstracts/colors';
+	@use '$lib/sass/abstracts/mixins' as *;
 
 	#input {
 		display: flex;
@@ -23,15 +24,9 @@
 	}
 
 	textarea {
-		resize: vertical;
+		@include textbox;
 
 		width: 100%;
-		min-height: 5.5em;
-
 		color: inherit;
-
-		background-color: colors.$background-secondary;
-		border: 1px solid colors.$accent-primary;
-		border-radius: 0.25em;
 	}
 </style>
