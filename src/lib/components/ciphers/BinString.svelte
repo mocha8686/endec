@@ -51,10 +51,10 @@
 			<option value={0}>None</option>
 			<option value={4}>Every 4 bits</option>
 			{#each [1, 2, 3, 4, 8, 16] as numBytes}
-				<option value={numBytes * 8}
-					>Every {numBytes * 8} bits ({numBytes}
-					{numBytes === 1 ? 'byte' : 'bytes'})</option
-				>
+				<option value={numBytes * 8}>
+					Every {numBytes * 8} bits ({numBytes}
+					{numBytes === 1 ? 'byte' : 'bytes'})
+				</option>
 			{/each}
 		</select>
 	</label>
