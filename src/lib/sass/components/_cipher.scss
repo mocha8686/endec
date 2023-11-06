@@ -12,17 +12,20 @@
 	@include clickable;
 
 	overflow: clip;
-	display: flex;
+	display: grid;
 
 	min-width: 0;
 
 	text-overflow: ellipsis;
 
 	border: none;
+
+	grid-template-columns: 1fr;
 }
 
 output {
-	flex-grow: 1;
+	grid-column: 1;
+	grid-row: 1;
 	text-align: start;
 	mix-blend-mode: color-dodge;
 	transition: color 200ms ease-in-out;

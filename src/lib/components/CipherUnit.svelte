@@ -21,8 +21,10 @@
 </script>
 
 <script lang="ts">
-	import { faX } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
+	import { faX } from '@fortawesome/free-solid-svg-icons';
+	import { fly, slide } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
 
 	export let type: 'encode' | 'decode';
 	export let output: string | undefined | null;
@@ -33,6 +35,11 @@
 	let active = false;
 	let menuNode: HTMLElement;
 
+	const transitionParams = {
+		duration: 200,
+		easing: cubicInOut,
+	};
+
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key != 'Enter' || e.repeat) return;
 		active = !active;
@@ -41,10 +48,28 @@
 	function handleDocumentClick(e: MouseEvent) {
 		const element = e.target as HTMLElement;
 
-		if (!menuNode.contains(element)) {
+		if (menuNode && !menuNode.contains(element)) {
 			active = false;
 		}
 	}
+
+	const keyFunction = (() => {
+		let lastActive = active;
+		let lastMarkerClass = markerClass;
+
+		return (active: typeof lastActive, markerClass: typeof lastMarkerClass) => {
+			let res;
+			if (active || lastActive) {
+				res = lastMarkerClass;
+			} else {
+				res = markerClass;
+				lastMarkerClass = markerClass;
+			}
+
+			lastActive = active;
+			return res;
+		};
+	})();
 </script>
 
 <svelte:document on:click={handleDocumentClick} />
@@ -60,9 +85,15 @@
 		role="menu"
 		tabindex="0"
 	>
-		<output class={markerClass}>
-			{outputString}
-		</output>
+		{#key keyFunction(active, markerClass)}
+			<output
+				in:fly={{ ...transitionParams, y: '-100%' }}
+				out:fly={{ ...transitionParams, y: '100%' }}
+				class={markerClass}
+			>
+				{outputString}
+			</output>
+		{/key}
 		<button class="close" on:click|stopPropagation={() => (active = false)}>
 			<Fa icon={faX} />
 		</button>
