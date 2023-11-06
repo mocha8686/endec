@@ -1,0 +1,97 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins' as *;
+
+.cipher-name {
+	margin: 0;
+	padding-inline-end: 2rem;
+	font-size: 1rem;
+	white-space: nowrap;
+}
+
+.output-menu {
+	@include clickable;
+
+	overflow: clip;
+	display: flex;
+
+	min-width: 0;
+
+	text-overflow: ellipsis;
+
+	border: none;
+}
+
+output {
+	flex-grow: 1;
+	text-align: start;
+	mix-blend-mode: color-dodge;
+	transition: color 200ms ease-in-out;
+
+	&.invalid {
+		color: colors.$text-disabled;
+		text-align: center;
+	}
+
+	&.placeholder {
+		font-style: italic;
+		color: colors.$text-placeholder;
+		text-align: center;
+	}
+}
+
+.options,
+.close {
+	display: none;
+}
+
+.close {
+	cursor: pointer;
+
+	align-self: baseline;
+
+	aspect-ratio: 1;
+
+	border: none;
+
+	transition: color 100ms ease-in-out;
+
+	&:hover,
+	&:focus-visible {
+		color: red;
+	}
+}
+
+.active {
+	display: grid;
+	grid-auto-rows: 1fr min-content;
+	grid-template-columns: 1fr 1em;
+	flex-direction: column;
+	gap: 0.5em;
+
+	background-color: colors.$accent-selected;
+
+	output {
+		@include textbox;
+
+		cursor: text;
+
+		overflow: clip auto;
+		display: block;
+		flex-grow: 1;
+
+		min-width: 0;
+
+		overflow-wrap: break-word;
+
+		mix-blend-mode: normal;
+	}
+
+	.options {
+		justify-self: baseline;
+	}
+
+	.options,
+	.close {
+		display: initial;
+	}
+}
