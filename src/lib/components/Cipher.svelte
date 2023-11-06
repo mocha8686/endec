@@ -34,35 +34,41 @@
 	let encoderActive = false;
 	let decoderActive = false;
 
+	let encoderNode: HTMLElement | undefined;
+	let decoderNode: HTMLElement | undefined;
+
 	const enableEncoder = () => (encoderActive = true);
 	const enableDecoder = () => (decoderActive = true);
-
-	function handleClick(e: MouseEvent, enable: () => void) {
-		if (
-			(e.target as HTMLElement).parentElement?.className?.includes('active') ||
-			e.target instanceof HTMLOptionElement
-		) {
-			e.stopPropagation();
-			return;
-		}
-
-		enable();
-	}
 
 	function handleKeydown(e: KeyboardEvent, toggle: () => void) {
 		if (e.key != 'Enter' || e.repeat) return;
 		toggle();
 	}
+
+	function handleDocumentClick(e: MouseEvent) {
+		const element = e.target as HTMLElement;
+
+		if (!encoderNode?.contains(element)) {
+			encoderActive = false;
+		}
+
+		if (!decoderNode?.contains(element)) {
+			decoderActive = false;
+		}
+	}
 </script>
+
+<svelte:document on:click={handleDocumentClick} />
 
 <h2 class="cipher-name ciphers-item">{name}</h2>
 
 {#if encoded !== null}
-	<div
-		class="output-container ciphers-item"
+	<button
+		bind:this={encoderNode}
+		class="output-menu ciphers-item"
 		class:solo={decoded === null}
 		class:active={encoderActive}
-		on:click={(e) => handleClick(e, enableEncoder)}
+		on:click={enableEncoder}
 		on:keydown={(e) => handleKeydown(e, enableEncoder)}
 		role="menu"
 		tabindex="0"
@@ -81,15 +87,16 @@
 				<slot class="options" name="encoder-options" />
 			</form>
 		{/if}
-	</div>
+	</button>
 {/if}
 
 {#if decoded !== null}
-	<div
-		class="output-container ciphers-item"
+	<button
+		bind:this={decoderNode}
+		class="output-menu ciphers-item"
 		class:solo={encoded === null}
 		class:active={decoderActive}
-		on:click={(e) => handleClick(e, enableDecoder)}
+		on:click={enableDecoder}
 		on:keydown={(e) => handleKeydown(e, enableDecoder)}
 		role="menu"
 		tabindex="0"
@@ -108,7 +115,7 @@
 				<slot name="decoder-options" />
 			</form>
 		{/if}
-	</div>
+	</button>
 {/if}
 
 <style lang="scss">
@@ -121,23 +128,29 @@
 		white-space: nowrap;
 	}
 
-	.output-container {
+	.output-menu {
 		@include clickable;
 
+		border: none;
 		overflow: clip;
 		min-width: 0;
 		text-overflow: ellipsis;
+		display: flex;
 	}
 
 	output {
+		flex-grow: 1;
 		mix-blend-mode: color-dodge;
-		transition: color 200ms ease;
+		text-align: start;
+		transition: color 200ms ease-in-out;
 
 		&.invalid {
+			text-align: center;
 			color: colors.$text-disabled;
 		}
 
 		&.placeholder {
+			text-align: center;
 			font-style: italic;
 			color: colors.$text-placeholder;
 		}
@@ -188,6 +201,10 @@
 			overflow-wrap: break-word;
 
 			mix-blend-mode: normal;
+		}
+
+		.options {
+			justify-self: baseline;
 		}
 
 		.options,
