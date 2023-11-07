@@ -17,10 +17,10 @@
 	}
 
 	export function binStringDecode(input: string): string | undefined {
-		if (input.length === 0) return '';
-
 		const noSpaces = input.replace(/\s/g, '');
-		if (noSpaces.match(/^[01]*$/) === null) return undefined;
+		if (noSpaces.length === 0) return '';
+
+		if (noSpaces?.match(/^[01]*$/) === null) return undefined;
 
 		const bytes = noSpaces
 			.match(/[01]{1,8}/g)!

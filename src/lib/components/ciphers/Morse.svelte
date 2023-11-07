@@ -5,7 +5,7 @@
 
 	export let input: string;
 
-	$: encoded = encode(input);
+	$: encoded = encode(input.trim().replace(/ {2,}/g, ' '));
 	$: decoded = input.match(/^[\s/.-]*$/)
 		? decode(input).toUpperCase()
 		: undefined;

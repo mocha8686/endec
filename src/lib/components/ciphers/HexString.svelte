@@ -32,9 +32,9 @@
 	}
 
 	export function hexStringDecode(input: string): string | undefined {
-		if (input.length === 0) return '';
-
 		const normalized = input.replace(/\s/g, '').toLowerCase();
+		if (normalized.length === 0) return '';
+
 		if (normalized.match(/^[0-9a-f]*$/) === null) return undefined;
 
 		const bytes = normalized
