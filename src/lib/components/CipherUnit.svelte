@@ -106,10 +106,10 @@
 					{outputString}
 				</output>
 			{/key}
-			<button type="button" class="textbox-button top-right" on:click={copy}>
+			<button type="button" class="textbox-button output-button top-right" on:click={copy}>
 				Copy
 			</button>
-			<button type="button" class="textbox-button bottom-right" on:click={use}>
+			<button type="button" class="textbox-button output-button bottom-right" on:click={use}>
 				Use
 			</button>
 		</div>

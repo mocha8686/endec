@@ -48,7 +48,7 @@ output {
 	}
 }
 
-.textbox-button,
+.output-button,
 .options,
 .close {
 	display: none;
@@ -71,7 +71,7 @@ output {
 	}
 }
 
-.textbox-button {
+.output-button {
 	background-color: colors.$background-element;
 }
 
@@ -102,7 +102,7 @@ output {
 		align-self: baseline;
 	}
 
-	.textbox-button,
+	.output-button,
 	.options,
 	.close {
 		display: initial;
