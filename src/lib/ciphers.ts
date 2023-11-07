@@ -6,6 +6,7 @@ import Caesar from './components/ciphers/Caesar.svelte';
 import Hex from './components/ciphers/Hex.svelte';
 import HexString from './components/ciphers/HexString.svelte';
 import Initials from './components/ciphers/Initials.svelte';
+import MD5 from './components/ciphers/MD5.svelte';
 import Morse from './components/ciphers/Morse.svelte';
 import Octal from './components/ciphers/Octal.svelte';
 import Reverse from './components/ciphers/Reverse.svelte';
@@ -24,4 +25,5 @@ export default [
 	Hex,
 	Initials,
 	Reverse,
+	MD5,
 ];
