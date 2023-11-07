@@ -11,6 +11,7 @@ import Morse from './components/ciphers/Morse.svelte';
 import Octal from './components/ciphers/Octal.svelte';
 import Reverse from './components/ciphers/Reverse.svelte';
 import SHA1 from './components/ciphers/SHA1.svelte';
+import SHA256 from './components/ciphers/SHA256.svelte';
 import Vigenere from './components/ciphers/Vigenere.svelte';
 
 export default [
@@ -28,4 +29,5 @@ export default [
 	Reverse,
 	MD5,
 	SHA1,
+	SHA256,
 ];
