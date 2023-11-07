@@ -13,7 +13,9 @@
 @mixin textbox($buttons: true, $min-height: 5.5em, $border-radius: 0.25rem) {
 	cursor: text;
 	resize: vertical;
+
 	min-height: $min-height;
+
 	background-color: colors.$background-element;
 	border: 1px solid colors.$accent-primary;
 
@@ -31,6 +33,7 @@
 
 	aspect-ratio: 1;
 	width: $size;
+	background-color: colors.$background-element;
 	border-left: none;
 
 	&:not(.bottom-right) {
