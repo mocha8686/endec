@@ -26,6 +26,9 @@
 	import { cubicInOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
+	import Fa from 'svelte-fa';
+	import { faCopy, faUpLong } from '@fortawesome/free-solid-svg-icons';
+
 	export let type: 'encode' | 'decode';
 	export let output: string | undefined | null;
 	export let solo: boolean;
@@ -107,9 +110,11 @@
 				</output>
 			{/key}
 			<button type="button" class="textbox-button output-button top-right" on:click={copy}>
+				<Fa icon={faCopy} />
 				Copy
 			</button>
 			<button type="button" class="textbox-button output-button bottom-right" on:click={use}>
+				<Fa icon={faUpLong} />
 				Use
 			</button>
 		</div>
