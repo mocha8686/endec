@@ -19,7 +19,7 @@
 	@use '$lib/sass/abstracts/mixins' as *;
 
 	.textbox {
-		@include textbox;
+		@include textbox(false);
 
 		width: 100%;
 	}
