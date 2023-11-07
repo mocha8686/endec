@@ -22,6 +22,10 @@
 	border: none;
 }
 
+.output-container {
+	@include textbox-grid(4em);
+}
+
 output {
 	grid-column: 1;
 	grid-row: 1;
@@ -44,6 +48,7 @@ output {
 	}
 }
 
+.textbox-button,
 .options,
 .close {
 	display: none;
@@ -66,10 +71,12 @@ output {
 	}
 }
 
+.textbox-button {
+	background-color: colors.$background-element;
+}
+
 .active {
-	display: grid;
-	grid-auto-rows: 1fr min-content;
-	grid-template-columns: 1fr 1em;
+	display: flex;
 	flex-direction: column;
 	gap: 0.5em;
 
@@ -92,11 +99,13 @@ output {
 	}
 
 	.options {
-		justify-self: baseline;
+		align-self: baseline;
 	}
 
+	.textbox-button,
 	.options,
 	.close {
 		display: initial;
 	}
 }
+

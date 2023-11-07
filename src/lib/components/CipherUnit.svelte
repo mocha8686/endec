@@ -21,10 +21,8 @@
 </script>
 
 <script lang="ts">
-	import { faX } from '@fortawesome/free-solid-svg-icons';
 	import { cubicInOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
-	import Fa from 'svelte-fa';
 
 	export let type: 'encode' | 'decode';
 	export let output: string | undefined | null;
@@ -76,6 +74,7 @@
 
 {#if output !== null}
 	<button
+		type="button"
 		bind:this={menuNode}
 		class="output-menu ciphers-item"
 		class:solo
@@ -85,18 +84,19 @@
 		role="menu"
 		tabindex="0"
 	>
-		{#key keyFunction(active, markerClass)}
-			<output
-				in:fly={{ ...transitionParams, y: '-100%' }}
-				out:fly={{ ...transitionParams, y: '100%' }}
-				class={markerClass}
-			>
-				{outputString}
-			</output>
-		{/key}
-		<button class="close" on:click|stopPropagation={() => (active = false)}>
-			<Fa icon={faX} />
-		</button>
+		<div class="output-container">
+			{#key keyFunction(active, markerClass)}
+				<output
+					in:fly={{ ...transitionParams, y: '-100%' }}
+					out:fly={{ ...transitionParams, y: '100%' }}
+					class={markerClass}
+				>
+					{outputString}
+				</output>
+			{/key}
+			<button type="button" class="textbox-button top-right">Copy</button>
+			<button type="button" class="textbox-button bottom-right">Use</button>
+		</div>
 		{#if $$slots}
 			<form class="options">
 				<slot class="options" />

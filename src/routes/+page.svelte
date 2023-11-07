@@ -4,7 +4,11 @@
 	let input = '';
 </script>
 
-<textarea id="input" bind:value={input} />
+<form class="input-container">
+	<textarea class="textbox" bind:value={input} />
+	<button type="button" class="textbox-button top-right">Copy</button>
+	<button type="button" class="textbox-button bottom-right">Pin</button>
+</form>
 
 <ul class="ciphers">
 	{#each ciphers as Cipher}
@@ -15,18 +19,9 @@
 </ul>
 
 <style lang="scss">
-	@use '$lib/sass/abstracts/colors';
 	@use '$lib/sass/abstracts/mixins' as *;
 
-	#input {
-		display: flex;
-		justify-content: center;
-	}
-
-	textarea {
-		@include textbox;
-
-		width: 100%;
-		color: inherit;
+	.input-container {
+		@include textbox-grid(4em);
 	}
 </style>
