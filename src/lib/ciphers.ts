@@ -8,6 +8,7 @@ import HexString from './components/ciphers/HexString.svelte';
 import Initials from './components/ciphers/Initials.svelte';
 import Morse from './components/ciphers/Morse.svelte';
 import Octal from './components/ciphers/Octal.svelte';
+import Reverse from './components/ciphers/Reverse.svelte';
 import Vigenere from './components/ciphers/Vigenere.svelte';
 
 export default [
@@ -22,4 +23,5 @@ export default [
 	Octal,
 	Hex,
 	Initials,
+	Reverse,
 ];
