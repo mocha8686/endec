@@ -3,6 +3,7 @@ import Base64 from './components/ciphers/Base64.svelte';
 import Binary from './components/ciphers/Binary.svelte';
 import BinaryString from './components/ciphers/BinaryString.svelte';
 import Caesar from './components/ciphers/Caesar.svelte';
+import CRC32 from './components/ciphers/CRC32.svelte';
 import Hex from './components/ciphers/Hex.svelte';
 import HexString from './components/ciphers/HexString.svelte';
 import Initials from './components/ciphers/Initials.svelte';
@@ -32,4 +33,5 @@ export default [
 	SHA1,
 	SHA256,
 	SHA512,
+	CRC32,
 ];
