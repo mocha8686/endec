@@ -13,21 +13,23 @@
 
 	overflow: clip;
 	display: grid;
+	grid-template-columns: 1fr;
 
 	min-width: 0;
 
 	text-overflow: ellipsis;
 
 	border: none;
-
-	grid-template-columns: 1fr;
 }
 
 output {
 	grid-column: 1;
 	grid-row: 1;
+
 	text-align: start;
+
 	mix-blend-mode: color-dodge;
+
 	transition: color 200ms ease-in-out;
 
 	&.invalid {

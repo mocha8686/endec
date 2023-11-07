@@ -9,4 +9,15 @@ import Morse from './components/ciphers/Morse.svelte';
 import Octal from './components/ciphers/Octal.svelte';
 import Vigenere from './components/ciphers/Vigenere.svelte';
 
-export default [BinaryString, HexString, Base64, Caesar, A1Z26, Vigenere, Morse, Binary, Octal, Hex];
+export default [
+	BinaryString,
+	HexString,
+	Base64,
+	Caesar,
+	A1Z26,
+	Vigenere,
+	Morse,
+	Binary,
+	Octal,
+	Hex,
+];

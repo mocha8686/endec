@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { encode, decode } from '@leodog896/vigenere-cipher';
+	import { decode, encode } from '@leodog896/vigenere-cipher';
+
 	import Cipher from '$lib/components/Cipher.svelte';
 
 	export let input: string;
@@ -49,3 +50,4 @@
 		</label>
 	</svelte:fragment>
 </Cipher>
+

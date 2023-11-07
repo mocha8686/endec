@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Cipher from '$lib/components/Cipher.svelte';
 	import { decode, encode } from 'js-base64';
+
+	import Cipher from '$lib/components/Cipher.svelte';
 
 	export let input: string;
 

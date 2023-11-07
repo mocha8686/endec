@@ -21,10 +21,10 @@
 </script>
 
 <script lang="ts">
-	import Fa from 'svelte-fa';
 	import { faX } from '@fortawesome/free-solid-svg-icons';
-	import { fly, slide } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
+	import Fa from 'svelte-fa';
 
 	export let type: 'encode' | 'decode';
 	export let output: string | undefined | null;
