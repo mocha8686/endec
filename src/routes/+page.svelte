@@ -1,12 +1,10 @@
 <script lang="ts">
 	import ciphers from '$lib/ciphers';
-import { input } from '$lib/input';
+	import { input } from '$lib/input';
 </script>
 
 <form class="input-container">
 	<textarea class="textbox" bind:value={$input} />
-	<button type="button" class="textbox-button top-right">Copy</button>
-	<button type="button" class="textbox-button bottom-right">Pin</button>
 </form>
 
 <ul class="ciphers">
@@ -20,7 +18,8 @@ import { input } from '$lib/input';
 <style lang="scss">
 	@use '$lib/sass/abstracts/mixins' as *;
 
-	.input-container {
-		@include textbox-grid(4em);
+	.textbox {
+		@include textbox;
+		width: 100%;
 	}
 </style>
