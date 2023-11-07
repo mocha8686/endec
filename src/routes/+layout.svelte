@@ -1,8 +1,11 @@
 <script lang="ts">
 	import '$lib/sass/main.scss';
+
+	import Icon from '$lib/assets/Icon.svelte';
 </script>
 
 <header>
+	<Icon />
 	<h1>endec</h1>
 </header>
 
@@ -22,6 +25,13 @@
 		margin-block-end: 1em;
 		padding: 0.5em;
 		background-color: colors.$header-primary;
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	h1 {
+		margin: 0;
 	}
 
 	main {
