@@ -29,6 +29,7 @@
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"eslint-plugin-svelte": "^2.34.1",
+		"hash-wasm": "^4.10.0",
 		"include-media": "^2.0.0",
 		"js-base64": "^3.7.5",
 		"morsee": "^1.0.9",
