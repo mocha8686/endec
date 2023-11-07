@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+	type Casing = 'uppercase' | 'lowercase';
+
 	const CHARACTER_MAP: Record<string, number> = {
 		A: 1,
 		B: 2,
@@ -47,12 +49,13 @@
 
 	export function decodeA1Z26(
 		input: string,
-		doMod: boolean
+		doMod: boolean,
+		casing: Casing
 	): string | undefined {
 		if (input.length === 0) return '';
 		if (input.match(/^[\s\d/]*$/) === null) return undefined;
 
-		return input
+		const res = input
 			.split('/')
 			.map((s) =>
 				s
@@ -72,23 +75,40 @@
 					.join('')
 			)
 			.join(' ');
+
+		switch (casing) {
+			case 'uppercase':
+				return res.toUpperCase();
+			case 'lowercase':
+				return res.toLowerCase();
+		}
 	}
 </script>
 
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
-	import { input } from '$lib/input'
+	import { input } from '$lib/input';
 	import { mod } from '$lib/mod';
 
 	let doMod = false;
+	let casing: Casing = 'uppercase';
 
 	$: encoded = encodeA1Z26($input);
-	$: decoded = decodeA1Z26($input, doMod);
+	$: decoded = decodeA1Z26($input, doMod, casing);
 </script>
 
 <Cipher name="A1Z26" {encoded} {decoded}>
-	<label slot="decoder-options">
-		Modulo
-		<input type="checkbox" bind:checked={doMod} />
-	</label>
+	<svelte:fragment slot="decoder-options">
+		<label>
+			Modulo
+			<input type="checkbox" bind:checked={doMod} />
+		</label>
+		<label>
+			Casing
+			<select bind:value={casing}>
+				<option value="uppercase">Uppercase</option>
+				<option value="lowercase">Lowercase</option>
+			</select>
+		</label>
+	</svelte:fragment>
 </Cipher>
