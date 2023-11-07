@@ -12,9 +12,8 @@
 
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
-	import { parseNumber } from '$lib/number';
-
 	import { input } from '$lib/input'
+	import { parseNumber } from '$lib/number';
 
 	$: encoded = $input.length === 0 ? '' : parseNumber($input)?.toString(8);
 	$: decoded = $input.length === 0 ? '' : parseOctal($input)?.toString();

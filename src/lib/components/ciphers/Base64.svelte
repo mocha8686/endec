@@ -2,7 +2,6 @@
 	import { decode, encode } from 'js-base64';
 
 	import Cipher from '$lib/components/Cipher.svelte';
-
 	import { input } from '$lib/input'
 
 	$: encoded = base64Encode($input);

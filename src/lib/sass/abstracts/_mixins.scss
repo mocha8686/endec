@@ -20,9 +20,9 @@
 	border: 1px solid colors.$accent-primary;
 
 	@if $buttons {
+		grid-row: span 2;
 		border-top-left-radius: $border-radius;
 		border-bottom-left-radius: $border-radius;
-		grid-row: span 2;
 	} @else {
 		border-radius: $border-radius;
 	}

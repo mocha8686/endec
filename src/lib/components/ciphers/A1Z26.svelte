@@ -77,9 +77,8 @@
 
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
-	import { mod } from '$lib/mod';
-
 	import { input } from '$lib/input'
+	import { mod } from '$lib/mod';
 
 	let doMod = false;
 

@@ -32,7 +32,6 @@
 
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
-
 	import { input } from '$lib/input';
 
 	let encodeShift = 3;

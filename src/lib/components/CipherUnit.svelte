@@ -21,13 +21,12 @@
 </script>
 
 <script lang="ts">
-	import { input } from '$lib/input';
-
+	import { faCopy, faUpLong } from '@fortawesome/free-solid-svg-icons';
 	import { cubicInOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
-
 	import Fa from 'svelte-fa';
-	import { faCopy, faUpLong } from '@fortawesome/free-solid-svg-icons';
+
+	import { input } from '$lib/input';
 
 	export let type: 'encode' | 'decode';
 	export let output: string | undefined | null;

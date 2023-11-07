@@ -2,7 +2,6 @@
 	import { decode, encode } from '@leodog896/vigenere-cipher';
 
 	import Cipher from '$lib/components/Cipher.svelte';
-
 	import { input } from '$lib/input';
 
 	let encryptionKey = '';

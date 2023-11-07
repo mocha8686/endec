@@ -20,6 +20,7 @@
 
 	.textbox {
 		@include textbox;
+
 		width: 100%;
 	}
 </style>
