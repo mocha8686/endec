@@ -1,5 +1,11 @@
-<script lang="ts" context="module">
+<script lang="ts">
+	import Cipher from '$lib/components/Cipher.svelte';
 	import { decode, encode } from 'js-base64';
+
+	export let input: string;
+
+	$: encoded = base64Encode(input);
+	$: decoded = base64Decode(input);
 
 	export function base64Encode(input: string): string {
 		return encode(input);
@@ -12,15 +18,6 @@
 			return undefined;
 		}
 	}
-</script>
-
-<script lang="ts">
-	import Cipher from '$lib/components/Cipher.svelte';
-
-	export let input: string;
-
-	$: encoded = base64Encode(input);
-	$: decoded = base64Decode(input);
 </script>
 
 <Cipher name="Base64" {encoded} {decoded}></Cipher>
