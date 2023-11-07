@@ -71,6 +71,10 @@
 		};
 	})();
 
+	function copy() {
+		navigator.clipboard.writeText(output ?? '');
+	}
+
 	function use() {
 		if (typeof output === 'string' && output.length > 0) {
 			$input = output;
@@ -102,7 +106,9 @@
 					{outputString}
 				</output>
 			{/key}
-			<button type="button" class="textbox-button top-right">Copy</button>
+			<button type="button" class="textbox-button top-right" on:click={copy}>
+				Copy
+			</button>
 			<button type="button" class="textbox-button bottom-right" on:click={use}>
 				Use
 			</button>
