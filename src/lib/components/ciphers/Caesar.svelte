@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+	import { mod } from '$lib/mod';
+
 	export function caesar(input: string, shift: number): string {
 		const ALPHABETS = [
 			'abcdefghijklmnopqrstuvwxyz',
@@ -20,8 +22,6 @@
 			.map((c) => shiftedAlphabets[c] ?? c)
 			.join('');
 	}
-
-	const mod = (n: number, m: number) => ((n % m) + m) % m;
 </script>
 
 <script lang="ts">
