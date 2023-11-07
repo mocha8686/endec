@@ -16,18 +16,19 @@
 <style lang="scss">
 	@use '$lib/sass/abstracts/colors';
 	@use '$lib/sass/abstracts/variables' as *;
-
 	@use 'include-media' as * with (
 		$breakpoints: $breakpoints
 	);
 
 	header {
-		margin-block-end: 1em;
-		padding: 0.5em;
-		background-color: colors.$header-primary;
 		display: flex;
 		gap: 0.5rem;
 		align-items: center;
+
+		margin-block-end: 1em;
+		padding: 0.5em;
+
+		background-color: colors.$header-primary;
 	}
 
 	h1 {

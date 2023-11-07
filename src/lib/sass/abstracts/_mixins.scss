@@ -9,7 +9,6 @@
 		background-color: colors.$accent-selected;
 	}
 }
-
 @mixin textbox($buttons: true, $min-height: 5.5em, $border-radius: 0.25rem) {
 	cursor: text;
 	resize: vertical;
@@ -28,7 +27,6 @@
 		border-radius: $border-radius;
 	}
 }
-
 @mixin textbox-button($size: 4em, $border-radius: 0.25rem) {
 	@include clickable;
 
@@ -49,7 +47,6 @@
 		border-bottom-right-radius: $border-radius;
 	}
 }
-
 @mixin textbox-grid($button-size, $border-radius: 0.25rem) {
 	display: grid;
 	grid-template-columns: 1fr min-content;
