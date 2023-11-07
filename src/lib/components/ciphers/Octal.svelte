@@ -14,10 +14,10 @@
 	import Cipher from '$lib/components/Cipher.svelte';
 	import { parseNumber } from '$lib/number';
 
-	export let input: string;
+	import { input } from '$lib/input'
 
-	$: encoded = input.length === 0 ? '' : parseNumber(input)?.toString(8);
-	$: decoded = input.length === 0 ? '' : parseOctal(input)?.toString();
+	$: encoded = $input.length === 0 ? '' : parseNumber($input)?.toString(8);
+	$: decoded = $input.length === 0 ? '' : parseOctal($input)?.toString();
 </script>
 
 <Cipher name="Octal" {encoded} {decoded} />

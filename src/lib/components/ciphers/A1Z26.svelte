@@ -79,12 +79,12 @@
 	import Cipher from '$lib/components/Cipher.svelte';
 	import { mod } from '$lib/mod';
 
-	export let input: string;
+	import { input } from '$lib/input'
 
 	let doMod = false;
 
-	$: encoded = encodeA1Z26(input);
-	$: decoded = decodeA1Z26(input, doMod);
+	$: encoded = encodeA1Z26($input);
+	$: decoded = decodeA1Z26($input, doMod);
 </script>
 
 <Cipher name="A1Z26" {encoded} {decoded}>

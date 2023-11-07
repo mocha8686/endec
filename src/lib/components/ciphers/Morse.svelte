@@ -3,11 +3,11 @@
 
 	import Cipher from '$lib/components/Cipher.svelte';
 
-	export let input: string;
+	import { input } from '$lib/input'
 
-	$: encoded = encode(input.trim().replace(/ {2,}/g, ' '));
-	$: decoded = input.match(/^[\s/.-]*$/)
-		? decode(input).toUpperCase()
+	$: encoded = encode($input.trim().replace(/ {2,}/g, ' '));
+	$: decoded = $input.match(/^[\s/.-]*$/)
+		? decode($input).toUpperCase()
 		: undefined;
 </script>
 

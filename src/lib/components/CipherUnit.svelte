@@ -21,6 +21,8 @@
 </script>
 
 <script lang="ts">
+	import { input } from '$lib/input';
+
 	import { cubicInOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
@@ -68,6 +70,12 @@
 			return res;
 		};
 	})();
+
+	function use() {
+		if (typeof output === 'string' && output.length > 0) {
+			$input = output;
+		}
+	}
 </script>
 
 <svelte:document on:click={handleDocumentClick} />
@@ -95,7 +103,9 @@
 				</output>
 			{/key}
 			<button type="button" class="textbox-button top-right">Copy</button>
-			<button type="button" class="textbox-button bottom-right">Use</button>
+			<button type="button" class="textbox-button bottom-right" on:click={use}>
+				Use
+			</button>
 		</div>
 		{#if $$slots}
 			<form class="options">

@@ -27,9 +27,9 @@
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
 
-	export let input: string;
+	import { input } from '$lib/input'
 	let shift = 3;
-	$: encoded = caesar(input, shift);
+	$: encoded = caesar($input, shift);
 </script>
 
 <Cipher name="Caesar" {encoded}>

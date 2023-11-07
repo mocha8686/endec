@@ -51,13 +51,13 @@
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
 
-	export let input: string;
+	import { input } from '$lib/input'
 
 	let separate = 0;
 	let casing: Casing = 'lower';
 
-	$: encoded = hexStringEncode(input, separate, casing);
-	$: decoded = hexStringDecode(input);
+	$: encoded = hexStringEncode($input, separate, casing);
+	$: decoded = hexStringDecode($input);
 </script>
 
 <Cipher name="Hex String" {encoded} {decoded}>

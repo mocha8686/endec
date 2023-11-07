@@ -3,14 +3,14 @@
 
 	import Cipher from '$lib/components/Cipher.svelte';
 
-	export let input: string;
+	import { input } from '$lib/input';
 
 	let encryptionKey = '';
 	let decryptionKey = '';
 	let sync = true;
 
-	$: encoded = wrapper(input, encryptionKey, encode);
-	$: decoded = wrapper(input, sync ? encryptionKey : decryptionKey, decode);
+	$: encoded = wrapper($input, encryptionKey, encode);
+	$: decoded = wrapper($input, sync ? encryptionKey : decryptionKey, decode);
 
 	function wrapper(
 		input: string,
@@ -50,4 +50,3 @@
 		</label>
 	</svelte:fragment>
 </Cipher>
-

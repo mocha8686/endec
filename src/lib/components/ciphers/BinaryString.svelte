@@ -36,12 +36,12 @@
 <script lang="ts">
 	import Cipher from '$lib/components/Cipher.svelte';
 
-	export let input: string;
+	import { input } from '$lib/input'
 
 	let separate = 0;
 
-	$: encoded = binStringEncode(input, separate);
-	$: decoded = binStringDecode(input);
+	$: encoded = binStringEncode($input, separate);
+	$: decoded = binStringDecode($input);
 </script>
 
 <Cipher name="Binary String" {encoded} {decoded}>

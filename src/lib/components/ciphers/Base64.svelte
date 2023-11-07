@@ -3,10 +3,10 @@
 
 	import Cipher from '$lib/components/Cipher.svelte';
 
-	export let input: string;
+	import { input } from '$lib/input'
 
-	$: encoded = base64Encode(input);
-	$: decoded = base64Decode(input);
+	$: encoded = base64Encode($input);
+	$: decoded = base64Decode($input);
 
 	export function base64Encode(input: string): string {
 		return encode(input);
