@@ -13,6 +13,7 @@
 @mixin textbox($buttons: true, $min-height: 5.5em, $border-radius: 0.25rem) {
 	cursor: text;
 	resize: vertical;
+	user-select: text;
 
 	min-height: $min-height;
 
