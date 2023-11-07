@@ -1,4 +1,5 @@
 @use '../abstracts/colors';
+
 @use '../abstracts/mixins' as *;
 
 .cipher-name {
@@ -11,14 +12,9 @@
 .output-menu {
 	@include clickable;
 
-	overflow: clip;
 	display: grid;
 	grid-template-columns: 1fr;
-
 	min-width: 0;
-
-	text-overflow: ellipsis;
-
 	border: none;
 }
 
@@ -27,10 +23,13 @@
 }
 
 output {
+	overflow: clip;
 	grid-column: 1;
 	grid-row: 1;
 
 	text-align: start;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 
 	mix-blend-mode: color-dodge;
 
@@ -89,6 +88,7 @@ output {
 		min-width: 0;
 
 		overflow-wrap: break-word;
+		white-space: revert;
 
 		mix-blend-mode: normal;
 	}
