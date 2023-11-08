@@ -46,19 +46,6 @@
 		easing: cubicInOut,
 	};
 
-	function handleKeydown(e: KeyboardEvent) {
-		if (e.key != 'Enter' || e.repeat) return;
-		active = !active;
-	}
-
-	function handleDocumentClick(e: MouseEvent) {
-		const element = e.target as HTMLElement;
-
-		if (menuNode && !menuNode.contains(element)) {
-			active = false;
-		}
-	}
-
 	const keyFunction = (() => {
 		let lastActive = active;
 		let lastState = state;
@@ -76,6 +63,19 @@
 			return res;
 		};
 	})();
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key != 'Enter' || e.repeat) return;
+		active = !active;
+	}
+
+	function handleDocumentClick(e: MouseEvent) {
+		const element = e.target as HTMLElement;
+
+		if (menuNode && !menuNode.contains(element)) {
+			active = false;
+		}
+	}
 
 	function copy() {
 		navigator.clipboard.writeText(output ?? '');
