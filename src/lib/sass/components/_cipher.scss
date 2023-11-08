@@ -54,26 +54,8 @@ output {
 }
 
 .output-button,
-.options,
-.close {
+.options {
 	display: none;
-}
-
-.close {
-	cursor: pointer;
-
-	align-self: baseline;
-
-	aspect-ratio: 1;
-
-	border: none;
-
-	transition: color 100ms ease-in-out;
-
-	&:hover,
-	&:focus-visible {
-		color: red;
-	}
 }
 
 .active {
@@ -104,8 +86,7 @@ output {
 	}
 
 	.output-button,
-	.options,
-	.close {
+	.options {
 		display: initial;
 	}
 }
