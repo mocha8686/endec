@@ -37,15 +37,15 @@
 	background-color: colors.$background-element;
 	border-left: none;
 
-	&:not(.bottom-right) {
-		border-bottom: none;
-	}
-
-	&.top-right {
+	&:first-of-type {
 		border-top-right-radius: $border-radius;
 	}
 
-	&.bottom-right {
+	&:not(:last-of-type) {
+		border-bottom: none;
+	}
+
+	&:last-of-type {
 		border-bottom-right-radius: $border-radius;
 	}
 }
@@ -54,7 +54,7 @@
 	grid-template-columns: 1fr min-content;
 
 	.textbox {
-		@include textbox(true, ($button-size * 2), $border-radius);
+		@include textbox(true, ($button-size * $n-buttons), $border-radius);
 	}
 
 	.textbox-button {

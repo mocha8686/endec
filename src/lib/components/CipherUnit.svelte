@@ -114,17 +114,13 @@
 			{/key}
 			<button
 				type="button"
-				class="textbox-button output-button top-right"
+				class="textbox-button output-button"
 				on:click={copy}
 			>
 				<Fa icon={faCopy} />
 				Copy
 			</button>
-			<button
-				type="button"
-				class="textbox-button output-button bottom-right"
-				on:click={use}
-			>
+			<button type="button" class="textbox-button output-button" on:click={use}>
 				<Fa icon={faUpLong} />
 				Use
 			</button>
