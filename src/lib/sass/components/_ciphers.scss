@@ -14,9 +14,10 @@ li.group {
 	width: 100%;
 	padding-block: 1em 0.5em;
 
-	border-bottom: 1px dotted colors.$border-ciphers;
 	font-family: fonts.$header;
 	text-align: center;
+
+	border-bottom: 1px dotted colors.$border-ciphers;
 }
 
 li.cipher {
