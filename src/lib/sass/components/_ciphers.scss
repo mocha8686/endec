@@ -1,10 +1,22 @@
 @use '../abstracts/colors';
+@use '../abstracts/fonts';
 @use '../abstracts/mixins' as *;
 
 .ciphers {
 	display: grid;
 	grid-template-columns: min-content 1fr 1fr;
 	align-items: center;
+}
+
+li.group {
+	grid-column: span 3;
+
+	width: 100%;
+	padding-block: 1em 0.5em;
+
+	border-bottom: 1px dotted colors.$border-ciphers;
+	font-family: fonts.$header;
+	text-align: center;
 }
 
 li.cipher {
