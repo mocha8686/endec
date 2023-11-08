@@ -25,7 +25,7 @@
 }
 
 .output-container {
-	@include textbox-grid(4em);
+	@include textbox-grid(4em, 2);
 }
 
 output {
