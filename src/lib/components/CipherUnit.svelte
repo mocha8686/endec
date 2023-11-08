@@ -1,8 +1,10 @@
 <script lang="ts" context="module">
-	export function getOutputStringAndClass(
+	export type State = 'invalid' | 'placeholder' | null;
+
+	export function getOutputStringAndState(
 		output: string | undefined | null,
 		type: 'encode' | 'decode'
-	): [string, 'invalid' | 'placeholder' | null] {
+	): [string, State] {
 		if (output === null) {
 			return ['', null];
 		} else if (output === undefined) {
@@ -32,7 +34,9 @@
 	export let output: string | undefined | null;
 	export let solo: boolean;
 
-	$: [outputString, markerClass] = getOutputStringAndClass(output, type);
+	let outputString = '';
+	export let state: State = 'invalid';
+	$: [outputString, state] = getOutputStringAndState(output, type);
 
 	let active = false;
 	let menuNode: HTMLElement;
@@ -57,15 +61,15 @@
 
 	const keyFunction = (() => {
 		let lastActive = active;
-		let lastMarkerClass = markerClass;
+		let lastState = state;
 
-		return (active: typeof lastActive, markerClass: typeof lastMarkerClass) => {
+		return (active: typeof lastActive, state: typeof lastState) => {
 			let res;
 			if (active || lastActive) {
-				res = lastMarkerClass;
+				res = lastState;
 			} else {
-				res = markerClass;
-				lastMarkerClass = markerClass;
+				res = state;
+				lastState = state;
 			}
 
 			lastActive = active;
@@ -99,20 +103,28 @@
 		tabindex="0"
 	>
 		<div class="output-container">
-			{#key keyFunction(active, markerClass)}
+			{#key keyFunction(active, state)}
 				<output
 					in:fly={{ ...transitionParams, y: '-100%' }}
 					out:fly={{ ...transitionParams, y: '100%' }}
-					class={markerClass}
+					class={state}
 				>
 					{outputString}
 				</output>
 			{/key}
-			<button type="button" class="textbox-button output-button top-right" on:click={copy}>
+			<button
+				type="button"
+				class="textbox-button output-button top-right"
+				on:click={copy}
+			>
 				<Fa icon={faCopy} />
 				Copy
 			</button>
-			<button type="button" class="textbox-button output-button bottom-right" on:click={use}>
+			<button
+				type="button"
+				class="textbox-button output-button bottom-right"
+				on:click={use}
+			>
 				<Fa icon={faUpLong} />
 				Use
 			</button>

@@ -4,8 +4,15 @@
 .cipher-name {
 	margin: 0;
 	padding-inline-end: 2rem;
+
 	font-size: 1rem;
 	white-space: nowrap;
+
+	transition: color 200ms ease-in-out;
+
+	&.invalid {
+		color: colors.$text-disabled;
+	}
 }
 
 .output-menu {
