@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ciphers from '$lib/ciphers';
+	import cipherGroups from '$lib/ciphers';
 	import { input } from '$lib/input';
 </script>
 
@@ -8,10 +8,15 @@
 </form>
 
 <ul class="ciphers">
-	{#each ciphers as Cipher}
-		<li class="cipher">
-			<Cipher />
+	{#each Object.entries(cipherGroups) as [group, ciphers]}
+		<li class="group">
+			{group}
 		</li>
+		{#each ciphers as Cipher}
+			<li class="cipher">
+				<Cipher />
+			</li>
+		{/each}
 	{/each}
 </ul>
 

@@ -4,8 +4,15 @@
 .cipher-name {
 	margin: 0;
 	padding-inline-end: 2rem;
+
 	font-size: 1rem;
 	white-space: nowrap;
+
+	transition: color 200ms ease-in-out;
+
+	&.invalid {
+		color: colors.$text-disabled;
+	}
 }
 
 .output-menu {
@@ -18,7 +25,7 @@
 }
 
 .output-container {
-	@include textbox-grid(4em);
+	@include textbox-grid(4em, 2);
 }
 
 output {
@@ -47,26 +54,8 @@ output {
 }
 
 .output-button,
-.options,
-.close {
+.options {
 	display: none;
-}
-
-.close {
-	cursor: pointer;
-
-	align-self: baseline;
-
-	aspect-ratio: 1;
-
-	border: none;
-
-	transition: color 100ms ease-in-out;
-
-	&:hover,
-	&:focus-visible {
-		color: red;
-	}
 }
 
 .active {
@@ -97,8 +86,7 @@ output {
 	}
 
 	.output-button,
-	.options,
-	.close {
+	.options {
 		display: initial;
 	}
 }

@@ -9,6 +9,7 @@
 		background-color: colors.$accent-selected;
 	}
 }
+
 @mixin textbox($buttons: true, $min-height: 5.5em, $border-radius: 0.25rem) {
 	cursor: text;
 	resize: vertical;
@@ -27,6 +28,7 @@
 		border-radius: $border-radius;
 	}
 }
+
 @mixin textbox-button($size: 4em, $border-radius: 0.25rem) {
 	@include clickable;
 
@@ -35,24 +37,24 @@
 	background-color: colors.$background-element;
 	border-left: none;
 
-	&:not(.bottom-right) {
-		border-bottom: none;
-	}
-
-	&.top-right {
+	&:first-of-type {
 		border-top-right-radius: $border-radius;
 	}
 
-	&.bottom-right {
+	&:not(:last-of-type) {
+		border-bottom: none;
+	}
+
+	&:last-of-type {
 		border-bottom-right-radius: $border-radius;
 	}
 }
-@mixin textbox-grid($button-size, $border-radius: 0.25rem) {
+@mixin textbox-grid($button-size, $n-buttons, $border-radius: 0.25rem) {
 	display: grid;
 	grid-template-columns: 1fr min-content;
 
 	.textbox {
-		@include textbox(true, ($button-size * 2), $border-radius);
+		@include textbox(true, ($button-size * $n-buttons), $border-radius);
 	}
 
 	.textbox-button {

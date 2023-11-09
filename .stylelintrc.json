@@ -9,7 +9,7 @@
 			"always",
 			{
 				"except": ["after-same-name", "first-nested"],
-				"ignoreAtRules": ["elseif", "else"]
+				"ignoreAtRules": ["elseif", "else", "mixin"]
 			}
 		]
 	}
