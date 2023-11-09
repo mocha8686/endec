@@ -90,7 +90,7 @@
 	import { input } from '$lib/input';
 	import { mod } from '$lib/mod';
 
-	let doMod = false;
+	let doMod = true;
 	let casing: Casing = 'uppercase';
 
 	$: encoded = encodeA1Z26($input);
