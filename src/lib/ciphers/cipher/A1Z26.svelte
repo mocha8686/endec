@@ -53,7 +53,7 @@
 		casing: Casing
 	): string | undefined {
 		if (input.length === 0) return '';
-		if (input.match(/^[\s\d/]*$/) === null) return undefined;
+		if (input.match(/^[\s\d/-]*$/) === null) return undefined;
 
 		const res = input
 			.split('/')
