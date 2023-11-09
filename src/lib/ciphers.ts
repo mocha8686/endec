@@ -1,37 +1,11 @@
-import A1Z26 from './components/ciphers/A1Z26.svelte';
-import Base64 from './components/ciphers/Base64.svelte';
-import Binary from './components/ciphers/Binary.svelte';
-import BinaryString from './components/ciphers/BinaryString.svelte';
-import Caesar from './components/ciphers/Caesar.svelte';
-import CRC32 from './components/ciphers/CRC32.svelte';
-import Hex from './components/ciphers/Hex.svelte';
-import HexString from './components/ciphers/HexString.svelte';
-import Initials from './components/ciphers/Initials.svelte';
-import MD5 from './components/ciphers/MD5.svelte';
-import Morse from './components/ciphers/Morse.svelte';
-import Octal from './components/ciphers/Octal.svelte';
-import Reverse from './components/ciphers/Reverse.svelte';
-import SHA1 from './components/ciphers/SHA1.svelte';
-import SHA256 from './components/ciphers/SHA256.svelte';
-import SHA512 from './components/ciphers/SHA512.svelte';
-import Vigenere from './components/ciphers/Vigenere.svelte';
+import Ciphers from './ciphers/cipher';
+import Encodings from './ciphers/encoding';
+import Hashes from './ciphers/hash';
+import Numbers from './ciphers/number';
 
-export default [
-	BinaryString,
-	HexString,
-	Base64,
-	Caesar,
-	A1Z26,
-	Vigenere,
-	Morse,
-	Binary,
-	Octal,
-	Hex,
-	Initials,
-	Reverse,
-	MD5,
-	SHA1,
-	SHA256,
-	SHA512,
-	CRC32,
-];
+export default {
+	Ciphers,
+	Encodings,
+	Numbers,
+	Hashes,
+};
