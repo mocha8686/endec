@@ -4,6 +4,10 @@
 	import Icon from '$lib/assets/Icon.svelte';
 </script>
 
+<svelte:head>
+	<title>endec</title>
+</svelte:head>
+
 <header>
 	<Icon />
 	<h1>endec</h1>
