@@ -64,11 +64,6 @@
 		};
 	})();
 
-	function handleKeydown(e: KeyboardEvent) {
-		if (e.key != 'Enter' || e.repeat) return;
-		active = !active;
-	}
-
 	function handleDocumentClick(e: MouseEvent) {
 		const element = e.target as HTMLElement;
 
@@ -98,7 +93,6 @@
 		class:solo
 		class:active
 		on:click={() => (active = true)}
-		on:keydown={handleKeydown}
 		role="menu"
 		tabindex="0"
 	>
