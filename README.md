@@ -1,3 +1,3 @@
-# endec
+# NOTE: Moved to Codeberg
 
-Encoding and decoding, with ciphers.
+This repo has been moved to [codeberg](https://codeberg.org/mocha8686/endec).
